@@ -22,6 +22,10 @@ export class DataService {
   deletepost(id:any){
     return this.http.delete("http://localhost:3000/experience/delete/"+id)
   }
+  //update post 
+  updatepost(id:string,newpost:any){
+return this.http.put("http://localhost:3000/experience/put/"+id,newpost)
+  }
 
   addUser(post:any){
     return this.http.post('http://localhost:3000/users/signup',post)
