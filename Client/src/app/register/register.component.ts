@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-register',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private http:HttpClient) { 
+user:any;
+  constructor(private dataservices:DataService ,http:HttpClient) { 
      }
 
   ngOnInit(): void {
   }
-
+  signUP(user:any){
+   this.dataservices.addUser(user.value).subscribe((result)=>console.log(result))
+  }
 }
