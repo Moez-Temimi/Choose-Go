@@ -18,4 +18,8 @@ export class DataService {
   addpost(post:any){
     return this.http.post('http://localhost:3000/share',post)
   }
+
+  addUser(post:any){
+    return this.http.post('http://localhost:3000/users/signup',post)
+  }
 }
