@@ -15,6 +15,7 @@ dataArray:any
    }
 
   ngOnInit(): void {
+    // this.ds.getAllposts()
   }
 
  

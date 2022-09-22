@@ -9,9 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 import { ProfilComponent } from './profil/profil.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { SharepostComponent } from './sharepost/sharepost.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +22,15 @@ import {HttpClientModule} from '@angular/common/http'
     RegisterComponent,
     FooterComponent,
     AboutComponent,
-    ProfilComponent
+    ProfilComponent,
+    SharepostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
