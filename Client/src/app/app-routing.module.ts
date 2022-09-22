@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
 import { RegisterComponent } from './register/register.component';
+import { SharepostComponent } from './sharepost/sharepost.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -12,6 +13,8 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"about",component: AboutComponent},
   {path:"profil",component: ProfilComponent},
+  {path:"share",component: SharepostComponent},
+
  
 
 ];

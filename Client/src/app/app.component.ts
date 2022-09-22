@@ -8,15 +8,14 @@ import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
 })
 export class AppComponent {
   // title = 'ziwi';
-  img: CloudinaryImage;
+  
   ngOnInit() {
     const cld = new Cloudinary({
       cloud: {
         cloudName: 'dtwuychif'
       }
     });
-    this.img = cld.image('docs/models');
-    this.img.resize(fill().width(500).height(500));
+    
 
   }
 
