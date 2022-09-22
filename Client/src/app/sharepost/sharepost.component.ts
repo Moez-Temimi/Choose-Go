@@ -20,7 +20,7 @@ export class SharepostComponent implements OnInit {
     let data = f.value
     console.log(data);
     this.ds.addpost(data).subscribe((data)=>{console.log(data)
-    this.route.navigate(['/home'])
+    this.route.navigate(['/profil'])
   })
   }
 }
