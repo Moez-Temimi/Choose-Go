@@ -7,7 +7,7 @@ const expSchema = new mongoose.Schema({
   rate:Number,
   img:String,
   public:String,
-  userEmail:String,
+  userID:String,
 
 }, {timestamps: true} );
 module.exports=mongoose.model("Experience",expSchema)

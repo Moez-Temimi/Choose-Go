@@ -71,7 +71,7 @@ async function login(req, res) {
     }
   }
     //update user's profile
-    const updateExp = async (req, res) => {
+    const updateProfile = async (req, res) => {
       try {
         await User.findOneAndUpdate({ _id: req.params.id }, req.body);
     
@@ -84,7 +84,7 @@ async function login(req, res) {
     //get one User
 const getOneUser = async (req, res) => {
   try {
-    const user = await User.findOne({ _id: req.params.id});
+    const user = await User.findOne({ userID: req.params.id});
     res.status(200).json(user);
   } catch (error) {
     console.log(error);
@@ -100,6 +100,6 @@ module.exports = {
   login,
   logout,
   checkAuth,
-  updateExp,
+  updateProfile,
   getOneUser
 };
