@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 user:any;
 msg:any;
 
-  constructor(private dataservices:DataService ,private http:HttpClient ,private route:Router) { 
+  constructor(private dataservices:DataService ,private http : HttpClient ,private route:Router) { 
      }
 
   ngOnInit(): void {
