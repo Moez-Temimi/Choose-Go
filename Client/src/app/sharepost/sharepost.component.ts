@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { NgxSpinnerService } from 'ngx-spinner'; 
-import { HttpClient } from '@angular/common/http';
+ import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -14,7 +13,7 @@ export class SharepostComponent implements OnInit {
   imageUrl: any;
   imgFile: any;
 
-  constructor(private  ds:DataService ,private route:Router, private loading: NgxSpinnerService, private http: HttpClient
+  constructor(private  ds:DataService ,private route:Router,  private http: HttpClient
     ) { 
 
   }
@@ -47,8 +46,7 @@ export class SharepostComponent implements OnInit {
   //onSubmit
   onSubmit(f: any) {
    let post = f.value
-    this.loading.show();
-    const formData = new FormData();
+     const formData = new FormData();
     formData.append("upload_preset", "xjfviymd");
     formData.append('image', this.imageUrl);
     formData.append('file', this.imgFile);
@@ -62,8 +60,7 @@ export class SharepostComponent implements OnInit {
         console.log(error);
         
         this.imgFile = '';
-        this.loading.hide();
-      }
+       }
     );
 
     }
