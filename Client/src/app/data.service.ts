@@ -9,7 +9,8 @@ export class DataService {
   constructor(private http:HttpClient) { 
    
   }
-//get all data 
+  // posts services 
+//get all posts data 
   getAllposts(){
     return  this.http.get('http://localhost:3000/experience/getAll')
     
@@ -22,8 +23,24 @@ export class DataService {
   deletepost(id:any){
     return this.http.delete("http://localhost:3000/experience/delete/"+id)
   }
+  //update post 
+  updatepost(id:string,newpost:any){
+return this.http.put("http://localhost:3000/experience/put/"+id,newpost)
+  }
 
-  addUser(post:any){
-    return this.http.post('http://localhost:3000/users/signup',post)
+//user servives  
+//adding a user
+  addUser(user:any){
+    return this.http.post('http://localhost:3000/users/signup',user)
+  }
+
+  //login user 
+  login(user:any){
+return this.http.post('http://localhost:3000/users/login',user)
+  }
+
+  //logout user
+  logout(){
+    return this.http.get('http://localhost:3000/users/logout')
   }
 }

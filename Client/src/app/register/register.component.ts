@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,12 +10,18 @@ import { DataService } from '../data.service';
 })
 export class RegisterComponent implements OnInit {
 user:any;
-  constructor(private dataservices:DataService ,http:HttpClient) { 
+msg:any;
+
+  constructor(private dataservices:DataService ,private http:HttpClient ,private route:Router) { 
      }
 
   ngOnInit(): void {
   }
+
+  //user creation 
   signUP(user:any){
-   this.dataservices.addUser(user.value).subscribe((result)=>console.log(result))
-  }
+   this.dataservices.addUser(user.value).subscribe((result)=>{this.msg=result;
+    this.route.navigate(['/'])
+  })
+}
 }
