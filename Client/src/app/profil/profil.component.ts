@@ -16,6 +16,7 @@ export class ProfilComponent implements OnInit {
     category: '',
     location: '',
     description: '',
+    img:"",
     rate: 0,
     id: '',
   };
@@ -43,8 +44,9 @@ deleteMsg = '';
       console.log(response);
       //deleting the post from front end using his index(a way to not make u refresh ur page ) u can check this link ("https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice")
       this.dataArray.splice(i, 1);
+      this.deleteMsg="post deleted with Success" ;
       setTimeout(()=>{
-        this.deleteMsg="post deleted with Success";
+        this.deleteMsg="";
       },3000)
    
     }),
@@ -56,6 +58,7 @@ deleteMsg = '';
     category: string,
     location: string,
     description: string,
+    img:string,
     rate: number,
     id: any
   ) {
@@ -64,6 +67,7 @@ deleteMsg = '';
     this.postdata.category = category;
     this.postdata.location = location;
     this.postdata.description = description;
+    this.postdata.img=img;
     this.postdata.rate = rate;
     this.postdata.id = id;
     console.log(this.postdata);
@@ -82,6 +86,7 @@ deleteMsg = '';
       this.dataArray[indexID].category = data.category;
       this.dataArray[indexID].location = data.location;
       this.dataArray[indexID].description = data.description;
+      this.dataArray[indexID].img = data.img;
       this.dataArray[indexID].rate = data.rate;
       this.msg = ' The Post is Updated with Success';
     }),
