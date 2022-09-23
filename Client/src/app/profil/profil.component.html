@@ -6,8 +6,8 @@
     placeholder="&#xF002; Search"
     style="font-family: Arial, FontAwesome"
   />
-  <div class="alert alert-success" *ngIf="deleteMsg">
-    {{ deleteMsg}}
+  <div class="alert alert-success" role="alert" *ngIf="deleteMsg">
+   <strong>{{ deleteMsg}}</strong> 
   </div>
   <div class="box" *ngFor="let item of dataArray; index as i">
     <div>

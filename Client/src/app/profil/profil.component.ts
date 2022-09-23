@@ -43,7 +43,10 @@ deleteMsg = '';
       console.log(response);
       //deleting the post from front end using his index(a way to not make u refresh ur page ) u can check this link ("https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice")
       this.dataArray.splice(i, 1);
-      this.deleteMsg="post deleted with Success";
+      setTimeout(()=>{
+        this.deleteMsg="post deleted with Success";
+      },3000)
+   
     }),
       (err: HttpErrorResponse) => console.log(err.message);
   }}
