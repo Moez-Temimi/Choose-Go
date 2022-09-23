@@ -12,6 +12,7 @@ import { FormsModule  } from '@angular/forms';
 import { ProfilComponent } from './profil/profil.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SharepostComponent } from './sharepost/sharepost.component'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { SharepostComponent } from './sharepost/sharepost.component'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
 
     
 

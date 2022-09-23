@@ -1,3 +1,22 @@
 <app-navbar></app-navbar>
+<div class="searchHolder" >
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#xF002; Search"
+style="font-family: Arial, FontAwesome"/>
+</div>
+<br/>
+<div class="box" *ngFor="let item of allPost | filter:searchText; index as i">
+    <div>
+      <h4>Name:{{ item.name }}</h4>
+      <h4>Category: {{ item.category }}</h4>
+      <h4>Location : {{ item.location }}</h4>
+      <div>
+        <p>Description :{{ item.description }}</p>
+      </div>
+      <h4>Rate :{{ item.rate }}/5</h4>
+    </div>
+</div>
+
+
+
 
 <app-footer></app-footer>
