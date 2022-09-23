@@ -1,12 +1,13 @@
 .box {
-    padding: 100px 0;
-    width: 400px;
-    text-align: center;
-    background: #F3F4F6;
-    margin: 20px;
-    border-radius: 20px;
-    display: inline-block;
-  }
+  padding: 50px 0;
+  width: 450px;
+  text-align: center;
+  background: #F3F4F6;
+  margin: 20px;
+  border-radius: 20px;
+  display: inline-block;
+
+}
   .btn {
     display: inline-block;
     outline: none;
@@ -31,3 +32,8 @@
   .btn :hover {
     background-color: #41B883;
   }
+  img {
+    border-radius: 20px;
+    height: 350px;
+    width: 430px;
+   }

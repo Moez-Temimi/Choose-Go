@@ -1,17 +1,12 @@
 <app-navbar></app-navbar>
 
 <div>
-  <input
-    type="text"
-    placeholder="&#xF002; Search"
-    style="font-family: Arial, FontAwesome"
-  />
   <div class="alert alert-success" role="alert" *ngIf="deleteMsg">
    <strong>{{ deleteMsg}}</strong> 
   </div>
   <div class="box" *ngFor="let item of dataArray; index as i">
     <div>
-      <div> image: <img src={{item.img}}/></div>
+       <img src={{item.img}}/> 
       <h4>Name:{{ item.name }}</h4>
       <h4>Category: {{ item.category }}</h4>
       <h4>Location : {{ item.location }}</h4>

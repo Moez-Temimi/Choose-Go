@@ -126,6 +126,17 @@ const getone = async (req, res) => {
     console.log(error);
   }
 };
+//get all experiences of one user
+const getAllExperiencesOfUser = async (req, res) => {
+  let Email= req.params.id
+  try {
+    const experiences = await Experience.find({userEmail:Email});
+    res.status(200).json(experiences);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json("error");
+  }
+};
 
 module.exports = {
   shareExperience,
@@ -137,4 +148,5 @@ module.exports = {
   filterbyHotels,
   filterbyOthers,
   filterbyRestaurent,
+  getAllExperiencesOfUser
 };
