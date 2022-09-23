@@ -45,6 +45,11 @@ deleteMsg = '';
       //deleting the post from front end using his index(a way to not make u refresh ur page ) u can check this link ("https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice")
       this.dataArray.splice(i, 1);
       this.deleteMsg="post deleted with Success" ;
+      window.scroll({ 
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+ });
       setTimeout(()=>{
         this.deleteMsg="";
       },3000)
