@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +7,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  searchText:any;
   allPost:any;
   constructor(private dataservices:DataService) { }
 

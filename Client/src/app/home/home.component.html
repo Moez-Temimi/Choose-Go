@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 <div class="searchHolder" >
-<input class="form-control" type="text" name="search"  autocomplete="on" placeholder="&#xF002; Search"
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#xF002; Search"
 style="font-family: Arial, FontAwesome"/>
 </div>
 <br/>
-<div class="box" *ngFor="let item of allPost ; index as i">
+<div class="box" *ngFor="let item of allPost | filter:searchText; index as i">
     <div>
       <h4>Name:{{ item.name }}</h4>
       <h4>Category: {{ item.category }}</h4>
