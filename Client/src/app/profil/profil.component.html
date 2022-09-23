@@ -1,25 +1,192 @@
 <app-navbar></app-navbar>
 <div>
-    <input type="text"   placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome"/>
+  <input
+    type="text"
+    placeholder="&#xF002; Search"
+    style="font-family: Arial, FontAwesome"
+  />
 
-    <div class="box" *ngFor=" let item of dataArray"  >
-       <div>
-        <h4>Name:{{item.name}}  </h4>
-        <h4>Category: {{item.category}} </h4>
-        <h4>Location : {{item.location}}</h4>
-        <div>
-          <p>Description :{{item.description}} </p>
-        </div>
-        <h4>Rate :{{item.rate}}/5</h4>
+  <div class="box" *ngFor="let item of dataArray; index as i">
+    <div>
+      <h4>Name:{{ item.name }}</h4>
+      <h4>Category: {{ item.category }}</h4>
+      <h4>Location : {{ item.location }}</h4>
+      <div>
+        <p>Description :{{ item.description }}</p>
       </div>
+      <h4>Rate :{{ item.rate }}/5</h4>
+    </div>
+    <!-- Button trigger modal -->
+    <button
+      class="btn"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      (click)="
+        getdata(
+          item.name,
+          item.category,
+          item.location,
+          item.description,
+          item.rate,
+          item._id
+        )
+      "
+    >
+      Edit <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    <button type="button" class="btn" (click)="delete(item._id, i)">
+      Delete <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
 
-      <button type="button" class="btn"  >
-        Edit <i class="fa-solid fa-pen-to-square"></i>
-      </button> 
-      <button type="button" class="btn"  (click)="delete(item._id)">
-        Delete <i class="fa fa-trash" aria-hidden="true"></i>
-
-      </button>
+<app-footer></app-footer>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form update start here  -->
+        <div class="container">
+          <div>
+            <h3><b>Share your experience</b></h3>
+          </div>
+          <form #f="ngForm" (ngSubmit)="updatepost(f)">
+            <div class="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Place name"
+                required
+                name="name"
+                #name="ngModel"
+                ngModel
+                [(ngModel)]="postdata.name"
+              />
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea
+                type="text"
+                class="form-control"
+                placeholder="Be free ..."
+                required
+                name="description"
+                #description="ngModel"
+                ngModel
+                [(ngModel)]="postdata.description"
+              >
+              </textarea>
+            </div>
+            <div class="form-group">
+              <label>Category :</label>
+              <select
+                name="category"
+                #category="ngModel"
+                ngModel
+                [(ngModel)]="postdata.category"
+              >
+                <option>Hotels</option>
+                <option>Restaurant</option>
+                <option>Others</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Location : </label>
+              <select
+                selected="selected"
+                name="location"
+                #location="ngModel"
+                ngModel
+                [(ngModel)]="postdata.location"
+              >
+                <option>Tozeur</option>
+                <option>Tunis</option>
+                <option>Zaghouan</option>
+                <option>Tataouine</option>
+                <option>Nabeul</option>
+                <option>Bizerte</option>
+                <option>Gabès</option>
+                <option>Gafsa</option>
+                <option>Kairouan</option>
+                <option>Kasserine</option>
+                <option>Kébili</option>
+                <option>Le Kef</option>
+                <option>Mahdia</option>
+                <option>Médenine</option>
+                <option>Monastir</option>
+                <option>Béja</option>
+                <option>Sfax</option>
+                <option>Siliana</option>
+                <option>Sousse</option>
+                <option>Djerba</option>
+                <option>Gammarth</option>
+                <option>kantaoui</option>
+                <option>Klibiya</option>
+                <option>kelibia</option>
+                <option>hammamet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Rate : </label>
+              <select
+                name="rate"
+                #rate="ngModel"
+                ngModel
+                [(ngModel)]="postdata.rate"
+              >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="alert alert-success" *ngIf="msg">
+              {{ msg }}
+            </div>
+            <div class="modal-footer">
+              <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+             
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="f.invalid"
+              >
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- form update end here  -->
+      </div>
+   
     </div>
   </div>
-<app-footer></app-footer>
+</div>
