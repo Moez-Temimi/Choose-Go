@@ -2,12 +2,15 @@
     <div class="signin">
       <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
               <h1>Connexion <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
-              <form class="form-group"    >
-                 <input type="email" class="form-control" placeholder="Email" required>
-                 <input    type="password" class="form-control" placeholder="Password" minlength="8" required >
+              <form #userlogin="ngForm" class="form-group"  (ngSubmit)="login(userlogin)"  >
+                 <input type="email" class="form-control" placeholder="Email" name="email" #email="ngModel" ngModel required>
+                 <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" ngModel minlength="8" required >
                  <input type="submit" class="btn btn-primary"  value="Connexion" >
                  <p>If you dont have an account,<a href="/register"> Sign up </a> here!
                  </p>
+                 <div class="alert alert-success" *ngIf="message">
+                  {{ message }}
+                </div>
               </form>
            </div>
 </div>
