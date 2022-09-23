@@ -2,6 +2,8 @@ const User = require("../Models/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
 
+
+//function sign up
 async function signup(req, res) {
   console.log("req---->", req.body);
   try {
@@ -22,7 +24,7 @@ async function signup(req, res) {
     res.status(400).json("error");
   }
 }
-
+//function log in
 async function login(req, res) {
  try {
   const {email,password}= await req.body;
@@ -48,7 +50,7 @@ async function login(req, res) {
     res.status(400).json("error");
  } 
   }
-
+//funciton log out
   function logout(req,res){
    try {
     res.clearCookie("Authorization");
@@ -59,6 +61,7 @@ async function login(req, res) {
     res.status(400).json("error");
    }
   }
+  //function to check authentication
   function checkAuth(req, res) {
     try {
       console.log(res)
@@ -67,6 +70,28 @@ async function login(req, res) {
       return res.sendStatus(400);
     }
   }
+    //update user's profile
+    const updateExp = async (req, res) => {
+      try {
+        await User.findOneAndUpdate({ _id: req.params.id }, req.body);
+    
+        res.status(201).json({ message: "Profile updated successfully" });
+      } catch (error) {
+        console.log(error);
+        res.status(400).json({ msg: "update failed" });
+      }
+    };
+    //get one User
+const getOneUser = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id});
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json("error");
+  }
+};
+  
 
 
 
@@ -74,5 +99,7 @@ module.exports = {
   signup,
   login,
   logout,
-  checkAuth
+  checkAuth,
+  updateExp,
+  getOneUser
 };
