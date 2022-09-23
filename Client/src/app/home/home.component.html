@@ -6,6 +6,7 @@ style="font-family: Arial, FontAwesome"/>
 <br/>
 <div class="box" *ngFor="let item of allPost | filter:searchText; index as i">
     <div>
+      <img src={{item.img}}/> 
       <h4>Name:{{ item.name }}</h4>
       <h4>Category: {{ item.category }}</h4>
       <h4>Location : {{ item.location }}</h4>
