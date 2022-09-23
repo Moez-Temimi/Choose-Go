@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +6,5 @@ import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'ziwi';
-  
-  ngOnInit() {
-    const cld = new Cloudinary({
-      cloud: {
-        cloudName: 'dtwuychif'
-      }
-    });
-    
-
-  }
-
+  title = 'ziwi';
 }

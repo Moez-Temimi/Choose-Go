@@ -20,6 +20,7 @@
     "@angular/router": "^14.2.0",
     "@cloudinary/ng": "^1.5.0",
     "@cloudinary/url-gen": "^1.8.6",
+    "ngx-spinner": "^14.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

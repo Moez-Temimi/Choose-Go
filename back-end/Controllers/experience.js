@@ -25,7 +25,7 @@ const deleteExp = async (req, res) => {
     const baha = await Experience.findById({ _id: req.params.id });
     const publicId = baha.public;
     console.log("p_id--->", publicId);
-    await removeFromCloudinary(publicId);
+    // await removeFromCloudinary(publicId);
     await Experience.deleteOne({ _id: req.params.id });
     res.status(201).json({ message: "Post deleted successfully" });
   } catch (error) {
