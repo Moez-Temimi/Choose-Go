@@ -27,7 +27,19 @@ export class DataService {
 return this.http.put("http://localhost:3000/experience/put/"+id,newpost)
   }
 
-  addUser(post:any){
-    return this.http.post('http://localhost:3000/users/signup',post)
+//user servives  
+//adding a user
+  addUser(user:any){
+    return this.http.post('http://localhost:3000/users/signup',user)
+  }
+
+  //login user 
+  login(user:any){
+return this.http.post('http://localhost:3000/users/login',user)
+  }
+
+  //logout user
+  logout(){
+    return this.http.get('http://localhost:3000/users/logout')
   }
 }
