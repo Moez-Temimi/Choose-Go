@@ -51,7 +51,7 @@ export class SharepostComponent implements OnInit {
     if(confirm("Are you sure to add this post ?")) {
 
    let post = f.value
-    
+
     const formData = new FormData();
     formData.append("upload_preset", "xjfviymd");
     formData.append('image', this.imageUrl);
@@ -71,7 +71,6 @@ export class SharepostComponent implements OnInit {
         console.log(error);
         
         this.imgFile = '';
-        
       }
     );
 
