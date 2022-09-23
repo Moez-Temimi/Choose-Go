@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+
+  allPost:any;
+  constructor(private dataservices:DataService) { }
 
   ngOnInit(): void {
+    this.getAll()
   }
-
+getAll(){
+  this.dataservices.getAllposts().subscribe((result)=>{this.allPost=result})
+}
 }
