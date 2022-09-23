@@ -4,9 +4,9 @@ dotenv.config();
 require("dotenv").config();
 //CLD Config
 cloudinary.config({
-  cloud_name: "trust-us",
-  api_key: 636717224412268,
-  api_secret: "AvwHCkHR34Xv4GqjKBw2oGgnNME",
+  cloud_name: "dtwuychif",
+  api_key: 156134314836426,
+  api_secret: "oLF8kqJFdyjII-YZzpE0bydWp-g",
 });
 //Uploqding img to CLD
 sendToCloudinary = (path, data) => {

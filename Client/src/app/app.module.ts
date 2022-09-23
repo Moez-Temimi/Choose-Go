@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {CloudinaryModule} from '@cloudinary/ng';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -30,7 +30,9 @@ import { SharepostComponent } from './sharepost/sharepost.component'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CloudinaryModule
     
+
   ],
   providers: [],
   bootstrap: [AppComponent]
