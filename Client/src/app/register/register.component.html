@@ -8,8 +8,11 @@
          <input type="email" class="form-control" placeholder="Email"   name="email" #email="ngModel" ngModel required>
          <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" ngModel  minlength="8" required>
          <input type="submit" class="btn btn-primary" value="register">
-         <p>Already have an account? <a href="/">Sign in here</a>
+         <p>Already have an account? <a href="/">Sign in here</a>    
          </p>
+         <div class="alert alert-success" *ngIf="msg">
+            {{ msg }}
+          </div>
       </form>
    </div>
    <div></div>
