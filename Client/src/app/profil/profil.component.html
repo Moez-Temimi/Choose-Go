@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div>
+    <input type="text"   placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome"/>
+
+    <div class="box" *ngFor=" let item of dataArray"  >
+       <div>
+        <h4>Name:{{item.name}}  </h4>
+        <h4>Category: {{item.category}} </h4>
+        <h4>Location : {{item.location}}</h4>
+        <div>
+          <p>Description :{{item.description}} </p>
+        </div>
+        <h4>Rate :{{item.rate}}/5</h4>
+      </div>
+
+      <button type="button" class="btn"  >
+        Edit <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+      <button type="button" class="btn"  (click)="delete(item._id)">
+        Delete <i class="fa fa-trash" aria-hidden="true"></i>
+
+      </button>
+    </div>
+  </div>
+<app-footer></app-footer>
