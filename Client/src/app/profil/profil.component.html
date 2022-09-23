@@ -1,11 +1,14 @@
 <app-navbar></app-navbar>
+
 <div>
   <input
     type="text"
     placeholder="&#xF002; Search"
     style="font-family: Arial, FontAwesome"
   />
-
+  <div class="alert alert-success" *ngIf="deleteMsg">
+    {{ deleteMsg}}
+  </div>
   <div class="box" *ngFor="let item of dataArray; index as i">
     <div>
       <h4>Name:{{ item.name }}</h4>
@@ -34,7 +37,7 @@
     >
       Edit <i class="fa-solid fa-pen-to-square"></i>
     </button>
-    <button type="button" class="btn" (click)="delete(item._id, i)">
+    <button type="button" class="btn"  (click)="delete(item._id, i)">
       Delete <i class="fa fa-trash" aria-hidden="true"></i>
     </button>
   </div>
@@ -171,7 +174,8 @@
               class="btn btn-secondary"
               data-dismiss="modal"
             >
-              Close
+              Close  <i class="fa fa-window-close" aria-hidden="true"></i>
+
             </button>
              
               <button
@@ -179,7 +183,7 @@
                 class="btn btn-primary"
                 [disabled]="f.invalid"
               >
-                Save changes
+                Save changes  <i class="fas fa-save"></i>
               </button>
             </div>
           </form>
