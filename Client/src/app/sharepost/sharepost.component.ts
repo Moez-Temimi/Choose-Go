@@ -48,6 +48,8 @@ export class SharepostComponent implements OnInit {
   }
   //onSubmit
   onSubmit(f: any) {
+    if(confirm("Are you sure to add this post ?")) {
+
    let post = f.value
     
     const formData = new FormData();
@@ -74,4 +76,4 @@ export class SharepostComponent implements OnInit {
     );
 
     }
-}
+}}
