@@ -3,19 +3,6 @@
 <div class="container">
   <div>
     <h3><b>Share your experience</b></h3>
-  </div>
-  <form #f="ngForm" (ngSubmit)="add(f)">
-    <div class="form-group">
-      <label>Name</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Place name"
-        required
-        name="name"
-        #name="ngModel"
-        ngModel
-      />
     </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
