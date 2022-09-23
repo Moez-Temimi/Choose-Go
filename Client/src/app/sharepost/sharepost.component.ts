@@ -12,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class SharepostComponent implements OnInit {
   imageUrl: any;
   imgFile: any;
-
+  result:any;
+  imageSrc:any;
   constructor(private  ds:DataService ,private route:Router, private http: HttpClient
     ) { 
 
@@ -21,13 +22,13 @@ export class SharepostComponent implements OnInit {
   ngOnInit(): void {
   }
 //add new post 
-  add(f:any){
-    let data = f.value
-    console.log(data);
-    this.ds.addpost(data).subscribe((data)=>{console.log(data)
-    this.route.navigate(['/profil'])
-  })
-  }
+  // add(f:any){
+  //   let data = f.value
+  //   console.log(data);
+  //   this.ds.addpost(data).subscribe((data)=>{console.log(data)
+  //   this.route.navigate(['/profil'])
+  // })
+  // }
   //onChange_button
   onChange(event: any) {
     this.imgFile = event.target.files[0];
@@ -37,6 +38,8 @@ export class SharepostComponent implements OnInit {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => {
+       this.imageSrc = reader.result;
+
         this.imageUrl = reader.result as string;
       };
       console.log(reader.result,"<---url");
@@ -55,9 +58,13 @@ export class SharepostComponent implements OnInit {
    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/dtwuychif/upload`
     this.http.post(cloudinaryUrl,formData)
     .subscribe(result => {
-       
-      // post["image"] = result.secure_url
-        console.log(result)},
+      this.result =result
+      post.img = this.result.secure_url
+      console.log(post)
+        this.ds.addpost(post).subscribe((post)=>{console.log(post)
+          this.route.navigate(['/profil'])
+        });
+      },
       error => {
         console.log(error);
         

@@ -11,6 +11,7 @@
   </div>
   <div class="box" *ngFor="let item of dataArray; index as i">
     <div>
+      <div> image: <img src={{item.img}}/></div>
       <h4>Name:{{ item.name }}</h4>
       <h4>Category: {{ item.category }}</h4>
       <h4>Location : {{ item.location }}</h4>
@@ -30,6 +31,7 @@
           item.category,
           item.location,
           item.description,
+          item.img,
           item.rate,
           item._id
         )
