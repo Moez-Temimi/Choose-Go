@@ -9,7 +9,8 @@ export class DataService {
   constructor(private http:HttpClient) { 
    
   }
-//get all data 
+  // posts services 
+//get all posts data 
   getAllposts(){
     return  this.http.get('http://localhost:3000/experience/getAll')
     
