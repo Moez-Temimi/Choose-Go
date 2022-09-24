@@ -5,11 +5,9 @@ const jwt = require ("jsonwebtoken");
 
 //function sign up
 async function signup(req, res) {
-  console.log("req---->", req.body);
   try {
     const { username, email, password } = await req.body;
     const salt = await bcrypt.genSaltSync(10);
-    console.log("salt---->", salt);
 
     const hash =  bcrypt.hashSync(password, salt);
     const user = await User.create({
@@ -17,7 +15,6 @@ async function signup(req, res) {
       email: email,
       password: hash,
     });
-    console.log("user--->", user);
     res.status(201).json("user created");
   } catch (err) {
     console.log(err);
@@ -43,8 +40,11 @@ async function login(req, res) {
     httpOnly:true,
     sameSite:"lax"
   });
-  res.status(200).json({log:true,msg:"login success"});
-
+  res.status(statusCode).json({
+    status:"login success",
+    token,
+    user,
+  });
  } catch (error) {
     console.log(error);
     res.status(400).json("error");
@@ -84,7 +84,7 @@ async function login(req, res) {
     //get one User
 const getOneUser = async (req, res) => {
   try {
-    const user = await User.findOne({ userID: req.params.id});
+    const user = await User.findOne({ email: req.body.email});
     res.status(200).json(user);
   } catch (error) {
     console.log(error);

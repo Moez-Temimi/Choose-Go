@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
-
+import { UserInfoService } from '../user-info.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,22 +10,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   userlogin:any;
+  userInfo:any;
 
   //message to display
   message:any;
   messageobj:any;
 
-  constructor(private dataservices:DataService ,private http:HttpClient,private route:Router ) {}
+  constructor(private userInfoService :UserInfoService, private dataservices:DataService ,private http:HttpClient,private route:Router ) {}
 
   ngOnInit(): void {
   }
 
   //login function handling error
 login(userlogin:any){
+
     this.dataservices.login(userlogin.value).subscribe((result)=>{ console.log(result);
-    
+      
       this.messageobj=result;this.message=this.messageobj.msg;
+      var email={
+        email:userlogin.value.email
+      };
+      this.dataservices.getOne(email).subscribe((result)=>{this.userInfo=result;this.userInfoService.addUserInfos(this.userInfo)})
+     
+      console.log(userlogin.value)
       this.route.navigate(['/home'])
+
     },
     (error)=>{this.messageobj=error;this.message=this.messageobj.error})
 }

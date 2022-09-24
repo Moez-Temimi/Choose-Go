@@ -43,4 +43,9 @@ return this.http.post('http://localhost:3000/users/login',user)
   logout(){
     return this.http.get('http://localhost:3000/users/logout')
   }
+  //get oen use info
+getOne(email:any){
+  return this.http.post('http://localhost:3000/users/oneUser',email)
 }
+}
+

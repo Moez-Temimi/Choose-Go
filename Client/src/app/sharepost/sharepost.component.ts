@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
-
+import { UserInfoService } from '../user-info.service';
 
 @Component({
   selector: 'app-sharepost',
@@ -14,14 +14,14 @@ export class SharepostComponent implements OnInit {
   imgFile: any;
   result:any;
   imageSrc:any;
-  constructor(private  ds:DataService ,private route:Router, private http: HttpClient
+  constructor(private userInfoService :UserInfoService,private  ds:DataService ,private route:Router, private http: HttpClient
     ) { 
 
-  }
-
+    }
+    
   ngOnInit(): void {
   }
-//add new post 
+  //add new post 
   // add(f:any){
   //   let data = f.value
   //   console.log(data);
@@ -42,27 +42,28 @@ export class SharepostComponent implements OnInit {
 
         this.imageUrl = reader.result as string;
       };
-      console.log(reader.result,"<---url");
       
     }
   }
   //onSubmit
   onSubmit(f: any) {
+    let user =this.userInfoService.getUserInfos()
     if(confirm("Are you sure to add this post ?")) {
-
+      
    let post = f.value
-
+// let user =this.userInfoService.getUserInfos()
+post.userID=user._id
+console.log("user==>",post)
     const formData = new FormData();
     formData.append("upload_preset", "xjfviymd");
     formData.append('image', this.imageUrl);
     formData.append('file', this.imgFile);
-    console.log("formdata===>",formData)
    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/dtwuychif/upload`
     this.http.post(cloudinaryUrl,formData)
     .subscribe(result => {
       this.result =result
       post.img = this.result.secure_url
-      console.log(post)
+      
         this.ds.addpost(post).subscribe((post)=>{console.log(post)
           this.route.navigate(['/profil'])
         });
