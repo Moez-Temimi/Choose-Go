@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true ,
     },
+    img:String,
     password: { type: String, required: true },
   },
   { timestamps: true }
