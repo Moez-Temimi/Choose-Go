@@ -40,8 +40,11 @@ async function login(req, res) {
     httpOnly:true,
     sameSite:"lax"
   });
-  res.status(200).send({log:true,msg:"login success"});
-
+  res.status(200).json({
+    status:"login success",
+    token,
+    user,
+  });
  } catch (error) {
     console.log(error);
     res.status(400).json("error");
