@@ -40,7 +40,7 @@ async function login(req, res) {
     httpOnly:true,
     sameSite:"lax"
   });
-  res.status(200).res.status(statusCode).json({
+  res.status(statusCode).json({
     status:"login success",
     token,
     user,
