@@ -19,5 +19,7 @@ router.get("/hotels",  experience.filterbyHotels);
 router.get("/Others",  experience.filterbyOthers);
 //filtering postes by restaurent categorie  
 router.get("/Restaurant",  experience.filterbyRestaurent);
+//getting posts of one user  
+router.get("/getposts/:id",  experience.getAllExperiencesOfUser);
 
 module.exports = router;

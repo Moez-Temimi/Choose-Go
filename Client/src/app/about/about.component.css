@@ -1,27 +1,4 @@
-.btn {
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 1;
-    border-radius: 500px;
-    transition-property: background-color, border-color, color, box-shadow, filter;
-    transition-duration: 0.3s;
-    border: 1px solid transparent;
-    letter-spacing: 2px;
-    min-width: 160px;
-    text-transform: uppercase;
-    white-space: normal;
-    font-weight: 700;
-    text-align: center;
-    padding: 16px 14px 18px;
-    color: #fff;
-    background-color: #34495E;
-    height: 48px;
-  }
-  .btn :hover {
-    background-color: #41B883;
-  }
+
   .span{
     font-size: 20px;
     font-weight: bold;
@@ -32,12 +9,21 @@
     margin-left: 100px;
     margin-right:100px ;
   }
-  #h2{
-    margin-top: 20px;
-  }
-  #a{
-    margin-top: 100px;
+ 
+  .a{
+    margin-top: 70px;
     font-size: 20px;
     font-weight: bold;
     color: #34495E;
+    text-align: center;
+
+   }
+  h1{
+    text-align: center;
+  }
+  #c{
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+
   }

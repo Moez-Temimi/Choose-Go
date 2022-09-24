@@ -1,11 +1,12 @@
 .box {
-    padding: 100px 0;
-    width: 400px;
+    padding: 50px 0;
+    width: 450px;
     text-align: center;
     background: #F3F4F6;
     margin: 20px;
     border-radius: 20px;
     display: inline-block;
+
   }
   .btn {
     display: inline-block;
@@ -36,7 +37,18 @@
     align-items: center;
     text-align: center;
   }
-  input{
-    margin-top: 2%;
-    width: 50%;
+ 
+  img {
+    border-radius: 20px;
+    height: 350px;
+    width: 430px;
+   }
+  input[type=search], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
