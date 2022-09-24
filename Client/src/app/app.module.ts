@@ -13,6 +13,7 @@ import { ProfilComponent } from './profil/profil.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SharepostComponent } from './sharepost/sharepost.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RoutingparamService } from './routingparam.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     
 
   ],
-  providers: [],
+  providers: [RoutingparamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
