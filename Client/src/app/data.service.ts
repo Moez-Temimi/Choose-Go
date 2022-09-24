@@ -45,7 +45,7 @@ return this.http.post('http://localhost:3000/users/login',user)
   }
   //get oen use info
 getOne(email:any){
-  return this.http.post('http://localhost:3000/users/User',email)
+  return this.http.post('http://localhost:3000/users/oneUser',email)
 }
 }
 

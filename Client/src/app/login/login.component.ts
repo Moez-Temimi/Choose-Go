@@ -30,7 +30,7 @@ login(userlogin:any){
       var email={
         email:userlogin.value.email
       };
-      this.dataservices.getOne(email).subscribe((result)=>{this.userInfo=result})
+      this.dataservices.getOne(email).subscribe((result)=>{this.userInfo=result;console.log(this.userInfo)})
      
       console.log(userlogin.value)
       this.route.navigate(['/home'])
