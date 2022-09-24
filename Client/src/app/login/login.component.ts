@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   //login function handling error
 login(userlogin:any){
-    this.dataservices.login(userlogin.value).subscribe((result)=>{ 
+    this.dataservices.login(userlogin.value).subscribe((result)=>{ console.log(result);
+    
       this.messageobj=result;this.message=this.messageobj.msg;
       this.route.navigate(['/home'])
     },
