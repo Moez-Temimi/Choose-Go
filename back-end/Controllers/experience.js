@@ -9,7 +9,6 @@ const {
 //post an experience
 const shareExperience = async (req, res) => {
   try {
-    console.log("req---->", req.body);
     await Experience.create(req.body);
     res.status(201).json({ msg: "Post added successfully" });
   } catch (error) {
@@ -36,7 +35,6 @@ const deleteExp = async (req, res) => {
 
 //get all experience
 const getAllExperience = async (req, res) => {
-  console.log('hello');
   try {
     const experiences = await Experience.find();
     res.status(200).json(experiences);
@@ -128,9 +126,10 @@ const getone = async (req, res) => {
 };
 //get all experiences of one user
 const getAllExperiencesOfUser = async (req, res) => {
-  let Email= req.params.id
+  let id= req.params.id
+  console.log("backEND===>",id);
   try {
-    const experiences = await Experience.find({userEmail:Email});
+    const experiences = await Experience.find({userID:id});
     res.status(200).json(experiences);
   } catch (error) {
     console.log(error);
