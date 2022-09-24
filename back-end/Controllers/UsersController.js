@@ -5,11 +5,9 @@ const jwt = require ("jsonwebtoken");
 
 //function sign up
 async function signup(req, res) {
-  console.log("req---->", req.body);
   try {
     const { username, email, password } = await req.body;
     const salt = await bcrypt.genSaltSync(10);
-    console.log("salt---->", salt);
 
     const hash =  bcrypt.hashSync(password, salt);
     const user = await User.create({
@@ -17,7 +15,6 @@ async function signup(req, res) {
       email: email,
       password: hash,
     });
-    console.log("user--->", user);
     res.status(201).json("user created");
   } catch (err) {
     console.log(err);
