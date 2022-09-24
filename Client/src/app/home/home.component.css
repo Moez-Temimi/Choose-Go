@@ -52,3 +52,9 @@
     border-radius: 4px;
     box-sizing: border-box;
   }
+  #search{
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
