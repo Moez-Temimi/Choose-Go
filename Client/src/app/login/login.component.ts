@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
-
+import { UserInfoService } from '../user-info.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   message:any;
   messageobj:any;
 
-  constructor(private dataservices:DataService ,private http:HttpClient,private route:Router ) {}
+  constructor(private userInfoService :UserInfoService, private dataservices:DataService ,private http:HttpClient,private route:Router ) {}
 
   ngOnInit(): void {
   }
@@ -30,7 +30,7 @@ login(userlogin:any){
       var email={
         email:userlogin.value.email
       };
-      this.dataservices.getOne(email).subscribe((result)=>{this.userInfo=result;console.log(this.userInfo)})
+      this.dataservices.getOne(email).subscribe((result)=>{this.userInfo=result;this.userInfoService.addUserInfos(this.userInfo)})
      
       console.log(userlogin.value)
       this.route.navigate(['/home'])

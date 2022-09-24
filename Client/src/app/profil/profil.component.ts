@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-
+import { UserInfoService } from '../user-info.service';
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
@@ -25,17 +25,18 @@ export class ProfilComponent implements OnInit {
     //succes delete message
 deleteMsg = '';
 
-  //get allposts
-  //please check this link ("https://jasonwatmore.com/post/2019/09/06/angular-http-get-request-examples")
-  constructor(private ds: DataService) {
-    this.ds.getAllposts().subscribe((data) => (this.dataArray = data)),
-      (err: HttpErrorResponse) => console.log(err.message);
-  }
+  
+  constructor(private userInfoService :UserInfoService ,private ds: DataService) {
 
+  }
+  
   ngOnInit(): void {
-    // this.ds.getAllposts()
-  }
+      //get allposts of one user
 
+    let user:any;
+     this.userInfoService.getPostsOfUser().subscribe((data) => (this.dataArray = data)),
+       (err: HttpErrorResponse) => console.log(err.message);
+  }
   //delete post
   //used stackoverflow for the popup of confirmation
   delete(id: any, i: number) {
@@ -93,7 +94,7 @@ deleteMsg = '';
       this.dataArray[indexID].description = data.description;
       this.dataArray[indexID].img = data.img;
       this.dataArray[indexID].rate = data.rate;
-      this.msg = ' The Post is Updated with Success';
+      this.msg = 'The Post is Updated with Success';
     }),
       (err: HttpErrorResponse) => console.log(err.message);
   }
