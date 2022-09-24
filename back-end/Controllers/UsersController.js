@@ -84,7 +84,7 @@ async function login(req, res) {
     //get one User
 const getOneUser = async (req, res) => {
   try {
-    const user = await User.findOne({ userID: req.params.id});
+    const user = await User.findOne({ email: req.body.email});
     res.status(200).json(user);
   } catch (error) {
     console.log(error);
