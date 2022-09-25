@@ -9,9 +9,10 @@ const requireAuth = require ("./middle/requireAuth")
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+// added angular domain  inside the cors
 app.use(
   cors({
-    origin: true,
+     origin:"http://localhost:4200" ,
     credentials: true,
   })
 );
