@@ -10,11 +10,11 @@ import { SharepostComponent } from './sharepost/sharepost.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
-  {path:"home",component:HomeComponent,canActivate:[RoutingparamService]},
+  {path:"home",component:HomeComponent},
   {path:"register",component:RegisterComponent},
   {path:"about",component: AboutComponent,canActivate:[RoutingparamService]},
-  {path:"profil",component: ProfilComponent,canActivate:[RoutingparamService]},
-  {path:"share",component: SharepostComponent,canActivate:[RoutingparamService]},
+  {path:"profil",component: ProfilComponent},
+  {path:"share",component: SharepostComponent},
 
  
 
