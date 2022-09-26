@@ -18,10 +18,6 @@ Adding search in home
 
 Getting the posts of one specific user in the profile
 
-User can add a picture
-
-Update user's informations
-
 ### Installation : -Clone or download the repository
 
 -Create a Mongodb database cluster at https://www.mongodb.com/
