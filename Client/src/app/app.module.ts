@@ -14,7 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { SharepostComponent } from './sharepost/sharepost.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RoutingparamService } from './routingparam.service';
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -24,8 +24,8 @@ import { RoutingparamService } from './routingparam.service';
     FooterComponent,
     AboutComponent,
     ProfilComponent,
-    SharepostComponent
-  ],
+    SharepostComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,6 +1,7 @@
 
     <div class="signin">
       <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
+        <img class="logo" src="../../assets/logo22.png" alt="logo">
               <h1>Connexion <i class="fa fa-sign-in" aria-hidden="true"></i></h1>
               <form #userlogin="ngForm" class="form-group"  (ngSubmit)="login(userlogin)"  >
                  <input type="email" class="form-control" placeholder="Email" name="email" #email="ngModel" ngModel required>
@@ -8,8 +9,8 @@
                  <input type="submit" class="btn btn-primary"  value="Connexion" >
                  <p>If you dont have an account,<a href="/register"> Sign up </a> here!
                  </p>
-                 <div class="alert alert-success" *ngIf="message">
-                  {{ message }}
+                 <div class="alert alert-danger" role="alert" *ngIf="message">
+                 {{ message }}
                 </div>
               </form>
            </div>

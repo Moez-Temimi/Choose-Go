@@ -37,3 +37,12 @@ input[type=password], select {
   input[type=submit]:hover {
   background-color: #45a049; /* Green */
   }
+  .logo{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:  0% 0% 0% 0%;
+    background-color: #34495E;
+   }
