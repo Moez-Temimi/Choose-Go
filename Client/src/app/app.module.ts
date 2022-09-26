@@ -13,7 +13,8 @@ import { ProfilComponent } from './profil/profil.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SharepostComponent } from './sharepost/sharepost.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-@NgModule({
+import { RoutingparamService } from './routingparam.service';
+ @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -23,8 +24,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FooterComponent,
     AboutComponent,
     ProfilComponent,
-    SharepostComponent
-  ],
+    SharepostComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +36,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     
 
   ],
-  providers: [],
+  providers: [RoutingparamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
