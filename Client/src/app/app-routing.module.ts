@@ -13,8 +13,8 @@ const routes: Routes = [
   {path:"home",component:HomeComponent,canActivate:[RoutingparamService]},
   {path:"register",component:RegisterComponent},
   {path:"about",component: AboutComponent,canActivate:[RoutingparamService]},
-  {path:"profil",component: ProfilComponent,canActivate:[RoutingparamService]},
-  {path:"share",component: SharepostComponent,canActivate:[RoutingparamService]},
+  {path:"profil",component: ProfilComponent},
+  {path:"share",component: SharepostComponent},
 
  
 

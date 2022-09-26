@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthcheckService {
-loged:boolean=false;
+loged:boolean=true;
   constructor() { }
 
   gettingToken(token:any){
